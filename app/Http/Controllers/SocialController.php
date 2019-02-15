@@ -70,4 +70,17 @@ class SocialController extends Controller
 
         return redirect('home');
     }
+
+    public function wechatLogin()
+    {
+        return Socialite::driver('wechat')->redirect();
+    }
+
+    public function wechatCallback()
+    {
+        $user = Socialite::driver('wechat')->user();
+
+        dd($user);
+        //return redirect('/');
+    }
 }

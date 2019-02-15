@@ -53,9 +53,9 @@ return [
     ],
 
     'wechat' => [
-        'client_id'     => env('WECHAT_OPEN_APPID'),
-        'client_secret' => env('WECHAT_OPEN_SECRET'),
-        'redirect'      => env('WECHAT_OPEN_REDIRECT'),
+        'client_id'     => 'wxe65f760b4ce3d9d9',
+        'client_secret' => '5fd1234a2a081c7213b78c6d43a38d9c',
+        'redirect'      => 'http://www.laravel-tube.com/wechat/callback',
     ],
 
 ];
