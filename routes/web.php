@@ -21,9 +21,6 @@ Route::get('/github/callback','SocialController@githubCallback');
 Route::get('/qq/login','SocialController@qqLogin');
 Route::get('/qq/callback','SocialController@qqCallback');
 
-Route::get('/wechat/login','SocialController@wechatLogin');
-Route::get('/wechat/callback','SocialController@wechatCallback');
-
 Route::get('/add_email','SocialController@addEmail');
 
 Auth::routes();
