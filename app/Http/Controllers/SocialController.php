@@ -79,8 +79,16 @@ class SocialController extends Controller
     public function wechatCallback()
     {
         $user = Socialite::driver('wechat')->user();
+        $account = User::firstOrNew([
+            'wechat_id' => $user->id
+        ],[
+            'name'   => $user->nickname,
+            'wechat_id' => $user->id,
+            'avatar'    => $user->avatar
+        ]);
 
-        dd($user);
-        //return redirect('/');
+        Auth::login($account);
+
+        return redirect('/');
     }
 }
