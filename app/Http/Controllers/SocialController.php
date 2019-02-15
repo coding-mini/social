@@ -43,18 +43,17 @@ class SocialController extends Controller
     {
         $user = Socialite::driver('qq')->user();
 
-        dd($user);
-
-        $account = User::where('qq_id',$user->id)->first();
-
-        if( !$account ){
-            $driver = 'qq';
-            return view('social.add_email',compact('user','driver'));
-        }
+        $account = User::firstOrCreate([
+            'qq_id' => $user->id
+        ],[
+            'name'   => $user->nickname,
+            'qq_id' => $user->id,
+            'avatar'    => $user->avatar
+        ]);
 
         Auth::login($account);
 
-        //return redirect('/');
+        return redirect('/');
     }
 
     public function addEmail()
